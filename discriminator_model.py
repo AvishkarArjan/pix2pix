@@ -32,6 +32,10 @@ class Discriminator(nn.Module):
             )
             in_channels = feature
 
+        layers.append(
+            nn.Conv2d(in_channels, 1, kernel_size=4, stride=1, padding=1, padding_mode="reflect")
+        )
+
         self.model = nn.Sequential(*layers)  # unpack all stuff of the list
 
     def forward(self, x, y):
