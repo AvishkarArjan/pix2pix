@@ -1,6 +1,11 @@
 import torch
 import torch.nn as nn
 
+"""
+Discriminator inspired by PatchGAN
+"""
+
+
 class CNNBlock(nn.Module):
     def __init__(self, in_channel, out_channel, stride=2):
         super().__init__()
