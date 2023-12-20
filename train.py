@@ -61,14 +61,14 @@ def main():
         load_checkpoint(config.CHECKPOINT_DISC, disc, opt_disc, config.LEARNING_RATE)
         load_checkpoint(config.CHECKPOINT_GEN, gen, opt_gen, config.LEARNING_RATE)
 
-    train_dataset = MapDataset(input_dir="/content/drive/MyDrive/NeRF/seathru_output_4", target_dir="/content/drive/MyDrive/NeRF/img_sample_3")
+    train_dataset = MapDataset(input_dir="/content/drive/MyDrive/NeRF/seathru_train", target_dir="/content/drive/MyDrive/NeRF/img_train")
     train_loader = DataLoader(train_dataset, batch_size=config.BATCH_SIZE, shuffle=True, num_workers=config.NUM_WORKERS)
 
     # use less VRAM
     g_scaler = torch.cuda.amp.GradScaler()
     d_scaler = torch.cuda.amp.GradScaler()
 
-    val_dataset = MapDataset(input_dir="/content/drive/MyDrive/NeRF/val/input_dir",target_dir="/content/drive/MyDrive/NeRF/val/target_dir")
+    val_dataset = MapDataset(input_dir="/content/drive/MyDrive/NeRF/seathru_output_4",target_dir="/content/drive/MyDrive/NeRF/img_sample_3")
     val_loader = DataLoader(val_dataset, batch_size=config.BATCH_SIZE, shuffle=True, num_workers=config.NUM_WORKERS)
 
     for epoch in range(config.NUM_EPOCHS):
