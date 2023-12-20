@@ -15,8 +15,8 @@ LAMBDA_GP = 10
 NUM_EPOCHS = 500
 LOAD_MODEL = False
 SAVE_MODEL = True
-CHECKPOINT_DISC = "disc.pth.tar"
-CHECKPOINT_GEN = "gen.pth.tar"
+CHECKPOINT_DISC = "/content/drive/MyDrive/NeRF/pix2pix_checkpoint/disc.pth.tar"
+CHECKPOINT_GEN = "/content/drive/MyDrive/NeRF/pix2pix_checkpoint/gen.pth.tar"
 
 both_transform = A.Compose(
     [A.Resize(width=512, height=512),], additional_targets={"image0": "image"},
