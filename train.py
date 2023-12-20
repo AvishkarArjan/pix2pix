@@ -54,7 +54,7 @@ def main():
     gen = Generator(in_channels=3).to(config.DEVICE)
     opt_disc = optim.Adam(disc.parameters(), lr=config.LEARNING_RATE, betas=(0.5, 0.999))
     opt_gen = optim.Adam(disc.parameters(), lr=config.LEARNING_RATE, betas=(0.5, 0.999))
-    BCE = nn.BCEWithLogitsLoss # gan loss
+    BCE = nn.BCEWithLogitsLoss() # gan loss
     L1_LOSS = nn.L1Loss() # didnt use patchgan loss
 
     if config.LOAD_MODEL:
