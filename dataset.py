@@ -26,14 +26,14 @@ class MapDataset(Dataset):
         #         break
 
         target_img_file = self.target_list_files[index]
-        print(in_img_file, target_img_file)
+        # print(in_img_file, target_img_file)
         in_img_path = os.path.join(self.input_dir, in_img_file)
         target_img_path = os.path.join(self.target_dir, target_img_file)
 
         in_img = np.array(Image.open(in_img_path))
         tar_img = np.array(Image.open(target_img_path))
 
-        augmentations = config.both_transform(image = in_img, image0 = tar_img )
+        augmentations = config.both_transform(image=in_img, image0=tar_img)
 
         input_image = augmentations["image"]
         target_image = augmentations["image0"]
