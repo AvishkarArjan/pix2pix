@@ -69,7 +69,7 @@ def main():
     d_scaler = torch.cuda.amp.GradScaler()
 
     val_dataset = MapDataset(input_dir="/content/drive/MyDrive/NeRF/seathru_output_4",target_dir="/content/drive/MyDrive/NeRF/img_sample_3")
-    val_loader = DataLoader(val_dataset, batch_size=config.BATCH_SIZE, shuffle=True, num_workers=config.NUM_WORKERS)
+    val_loader = DataLoader(val_dataset, batch_size=1, shuffle=True, num_workers=config.NUM_WORKERS)
 
     for epoch in range(config.NUM_EPOCHS):
         train_fn(disc, gen, train_loader, opt_disc, opt_gen, L1_LOSS, BCE, g_scaler, d_scaler)
