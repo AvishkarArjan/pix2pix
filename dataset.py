@@ -18,14 +18,8 @@ class MapDataset(Dataset):
 
     def __getitem__(self, index):
         in_img_file = self.in_list_files[index]
-
-        # target_img_file: str
-        # for tar_img in self.target_list_files:
-        #     if tar_img == in_img_file:
-        #         target_img_file = tar_img
-        #         break
-
         target_img_file = self.target_list_files[index]
+
         # print(in_img_file, target_img_file)
         in_img_path = os.path.join(self.input_dir, in_img_file)
         target_img_path = os.path.join(self.target_dir, target_img_file)
